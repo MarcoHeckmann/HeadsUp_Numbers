@@ -27,7 +27,6 @@ public class ChatListener implements Listener {
     @EventHandler
     public void onChat(AsyncPlayerChatEvent event) {
         if (instance.getGame().getGameStates() != GameStates.INGAME) {
-            event.setCancelled(true);
             return;
         }
 

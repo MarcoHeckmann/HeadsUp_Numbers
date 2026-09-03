@@ -11,8 +11,17 @@ public class Game {
 
     private Main instance;
 
+    private int maxGuesses;
+    private int currentGuesses;
+    private int min;
+    private int max;
+
     public Game(Main instance) {
         this.instance = instance;
+        this.maxGuesses = instance.getGameConfig().get("max-guesses");
+
+        this.min = instance.getGameConfig().get("range.min");
+        this.max = instance.getGameConfig().get("range.max");
     }
 
     private GameStates gameStates = GameStates.WAITING;
@@ -66,7 +75,7 @@ public class Game {
     public void randomizeNumber(){
         Random random = new Random();
 
-        correctNumber = random.nextInt(0,10); //10M
+        correctNumber = random.nextInt(min,max); //10M
     }
 
     public int getCorrectNumber(){
@@ -122,5 +131,21 @@ public class Game {
         boolean isPlayerOne = (player == player1);
         setPlayerOneTurn(isPlayerOne);
         setPlayerTwoTurn(!isPlayerOne);
+    }
+
+    public int getMaxGuesses() {
+        return maxGuesses;
+    }
+
+    public void setMaxGuesses(int maxGuesses) {
+        instance.getGameConfig().config().set("max-guesses", maxGuesses);
+    }
+
+    public int getCurrentGuesses() {
+        return currentGuesses;
+    }
+
+    public void setCurrentGuesses() {
+        currentGuesses = maxGuesses;
     }
 }

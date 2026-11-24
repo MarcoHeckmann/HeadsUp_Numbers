@@ -6,7 +6,7 @@ A Minecraft Paper plugin project for a two-player number-guessing game. The repo
 
 The source includes a game state for two players, a randomly selected number within a configured range, turn selection, a maximum guess count, and chat and join listeners. The range and guess limit are read from `game.yml`.
 
-The plugin metadata names the plugin `HeadsUpNumbers` and declares Paper API version `1.20`. There is no published setup guide or release artifact in this repository.
+The plugin metadata names the plugin `HeadsUpNumbers` and declares Paper API version `1.20`. This README describes the source project; it does not provide server installation instructions.
 
 ## Build from source
 
